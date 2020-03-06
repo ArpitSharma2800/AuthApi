@@ -4,8 +4,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const {registerValidation, loginValidation} = require('../validation');
 
-
 //Register
+
 router.post('/register', async (req, res) => {
 
     const {error} = registerValidation(req.body);
@@ -23,7 +23,7 @@ router.post('/register', async (req, res) => {
         password:hashedPassword
     });
     try{
-        const savedUser = await user.save();
+        const savedUser = await user.save()
         res.send({User: user._id, Name: user.name})
     }catch(err){
         res.status(400).send(err);
